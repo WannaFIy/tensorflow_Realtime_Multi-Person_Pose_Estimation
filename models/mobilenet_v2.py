@@ -195,7 +195,7 @@ def MobileNetV2(input_shape=None,
                                       require_flatten=include_top,
                                       weights=weights)
 
-    row_axis, col_axis = (0, 1)
+    row_axis, col_axis = (1, 2)
 
     rows = input_shape[row_axis]
     cols = input_shape[col_axis]
