@@ -11,7 +11,7 @@ def get_mobilenet_model(alpha, rows):
     :return: model with separate outputs for heatmaps and pafs
     """
     inputs, output, endpoints = MobileNetV2(
-        input_shape=(rows, rows, 3),
+        input_shape=(None, rows, rows, 3),
         alpha=alpha,
         include_top=False
     )
