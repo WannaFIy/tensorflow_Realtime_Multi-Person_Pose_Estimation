@@ -188,12 +188,12 @@ def MobileNetV2(input_shape=None,
 
     first_block_filters = _make_divisible(32 * alpha, 8)
 
-    input_shape = _obtain_input_shape(input_shape,
-                                      default_size=default_size,
-                                      min_size=32,
-                                      data_format='channels_last',
-                                      require_flatten=include_top,
-                                      weights=weights)
+#     input_shape = _obtain_input_shape(input_shape,
+#                                       default_size=default_size,
+#                                       min_size=32,
+#                                       data_format='channels_last',
+#                                       require_flatten=include_top,
+#                                       weights=weights)
 
     row_axis, col_axis = (1, 2)
 
