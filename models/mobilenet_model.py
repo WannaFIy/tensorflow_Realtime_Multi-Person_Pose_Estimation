@@ -15,7 +15,7 @@ def get_mobilenet_model(alpha, rows):
         alpha=alpha,
         include_top=False
     )
-
+    
     # get the key layers
 
     out28x28 = endpoints['block_5_add']
@@ -23,15 +23,15 @@ def get_mobilenet_model(alpha, rows):
 
     out14x14 = endpoints['block_12_add']
     out14x14 = layers.ReLU(6., name='out_relu_block_12')(out14x14)
-
+    print('out14x14', out14x14.shape)
     # upscale smaller layers
 
     resized_out14 = tf.image.resize(out14x14, (28, 28), name='resized_out14')
-
+    print('resized_out14', resized_out14.shape)
     # concatenate
-
+    
     mobilenet_output = tf.concat(axis=3, values=[out28x28, resized_out14], name='mobilenet_output')
-
+    print('mobilenet_output', mobilenet_output.shape)
     # stage 1 L (19)
 
     x = inverted_res_block(mobilenet_output, filters=128, alpha=alpha, stride=1,
