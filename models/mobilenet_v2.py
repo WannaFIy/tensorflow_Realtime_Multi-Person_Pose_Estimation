@@ -195,7 +195,7 @@ def MobileNetV2(input_shape=None,
 #                                       require_flatten=include_top,
 #                                       weights=weights)
 
-    row_axis, col_axis = (1, 2)
+    row_axis, col_axis = (0, 1)
 
     rows = input_shape[row_axis]
     cols = input_shape[col_axis]
@@ -223,6 +223,7 @@ def MobileNetV2(input_shape=None,
     x = tf.math.divide(x, 127.5, name='preprocessing_div')
 
     x = layers.ZeroPadding2D(padding=correct_pad(x, 3), name='Conv1_pad')(x)
+    print('226', x.shape)
     log_endpoint(endpoints, x)
 
     x = layers.Conv2D(first_block_filters,
