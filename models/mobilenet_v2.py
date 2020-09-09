@@ -223,7 +223,7 @@ def MobileNetV2(input_shape=None,
     x = tf.math.divide(x, 127.5, name='preprocessing_div')
 
     x = layers.ZeroPadding2D(padding=correct_pad(x, 3), name='Conv1_pad')(x)
-    print('226', x.shape)
+
     log_endpoint(endpoints, x)
 
     x = layers.Conv2D(first_block_filters,
