@@ -48,7 +48,7 @@ if __name__ == '__main__':
 
     #model = load_from_checkpoint('./tf_ckpts_mobilenet/')
     model = load_from_weights('/weights.best.mobilenet.h5')
-
+    print(model.summary)
     tf.saved_model.save(model, saved_model_dir)
 
     # export model to tflite
