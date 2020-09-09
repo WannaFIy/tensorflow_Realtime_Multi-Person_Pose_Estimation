@@ -102,10 +102,6 @@ def get_mobilenet_model(alpha, rows):
                         use_bias=False,
                         activation=None,
                         name='stage2_s_out')(x)
-    print('s_1', s_1.shape)
-    print('l_1', l_1.shape)
-    print('s_2', s_2.shape)
-    print('l_2', l_2.shape)
 
     model = tf.keras.Model(inputs=inputs, outputs=[s_1, l_1, s_2, l_2])
 
