@@ -47,7 +47,7 @@ if __name__ == '__main__':
     # save model as saved_model
 
     #model = load_from_checkpoint('./tf_ckpts_mobilenet/')
-    model = load_from_weights('./weights.best.mobilenet.h5')
+    model = load_from_weights('/weights.best.mobilenet.h5')
 
     tf.saved_model.save(model, saved_model_dir)
 
